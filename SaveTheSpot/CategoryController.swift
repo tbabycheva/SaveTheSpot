@@ -23,7 +23,59 @@ class CategoryController {
         
         return allCategories
     }
+    
+    var availableIcons: [String] = [] {
+        didSet {
+            saveAvailableIconsToUserDefaults()
+        }
+    }
+    
+    init() {
+        if UserDefaults.standard.bool(forKey: "defaultCategoriesAreSaved") == false {
+            saveDefaultCategoriesToPersistentStore()
+        }
+        
+        if UserDefaults.standard.bool(forKey: "allIconsAreSaved") == false {
+            saveIconsToPersistentStore()
+        }
+        
+        self.availableIcons = loadFromUserDefaults()
+    }
+    
+    // Save constants to UserDefaults the first time the app is open
+    
+    func saveDefaultCategoriesToPersistentStore() {
+        _ = Constants.defaultCategories
+        saveToPersistentStore()
+        UserDefaults.standard.set(true, forKey: "defaultCategoriesAreSaved")
+    }
+    
+    func saveIconsToPersistentStore() {
+        saveAllIconsToUserDefaults()
+        UserDefaults.standard.set(true, forKey: "allIconsAreSaved")
+    }
 }
+
+
+// MARK: - UserDefaults
+
+extension CategoryController {
+    
+    func saveAllIconsToUserDefaults() {
+        UserDefaults.standard.set(Constants.allIcons, forKey: "iconNames")
+    }
+    
+    func saveAvailableIconsToUserDefaults() {
+        UserDefaults.standard.set(availableIcons, forKey: "iconNames")
+    }
+    
+    func loadFromUserDefaults() -> [String] {
+        
+        guard let availableIcons = UserDefaults.standard.object(forKey: "iconNames") as? [String] else { return []}
+        return availableIcons
+    }
+}
+
 
 // MARK: - CoreData
 
