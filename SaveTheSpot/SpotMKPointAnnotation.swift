@@ -10,4 +10,6 @@ import UIKit
 import MapKit
 
 class SpotMKPointAnnotation: MKPointAnnotation {
+    
+    var iconName: String = "placeholder"
 }

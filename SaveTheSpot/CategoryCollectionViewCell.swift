@@ -8,6 +8,9 @@
 
 import UIKit
 
+protocol CategoryCollectionViewCellDelegate: class {
+    func deleteCategory(cell: CategoryCollectionViewCell)
+}
 
 class CategoryCollectionViewCell: UICollectionViewCell {
     
@@ -15,7 +18,26 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
     
+    weak var delegate: CategoryCollectionViewCellDelegate?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.categoryLabel.numberOfLines = 0
+        self.categoryLabel.lineBreakMode = .byWordWrapping
+        self.categoryLabel.preferredMaxLayoutWidth = 80
+        self.categoryLabel.sizeToFit()
+    }
+    
+    func showDeleteButton() {
+        deleteButton.isHidden = false
+    }
+    
+    func hideDeleteButton() {
+        deleteButton.isHidden = true
+    }
+    
         @IBAction func deleteButtonDidPress(sender: UIButton) {
+            delegate?.deleteCategory(cell: self)
     }
 }
 

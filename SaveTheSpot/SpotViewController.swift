@@ -55,7 +55,7 @@ class SpotViewController: UIViewController {
         nameLabel.text = spot.name
         addressLabel.text = spot.address
     }
-
+    
     // MARK: - Action Functions
     
     @IBAction func saveButtonTapped(_ sender: Any) {
@@ -85,10 +85,34 @@ class SpotViewController: UIViewController {
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
-          self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func editCategoriesButtonTapped(_ sender: Any) {
+        toggleEditMode()
+    }
     
+    // MARK: - Helper Functions
+    
+    var inEditingMode: Bool = false
+    
+    func toggleEditMode() {
+        let cellCount = categoriesCollectionView.numberOfItems(inSection: 0)
+        
+        if cellCount != 0 {
+            for cellNumber in 0...(cellCount-1) {
+                let indexPath = IndexPath(row: cellNumber, section: 0)
+                guard let cell = categoriesCollectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell else { continue }
+                
+                if inEditingMode == false {
+                    cell.showDeleteButton()
+                    editModeButton.setImage(#imageLiteral(resourceName: "save-category-button"), for: .normal)
+                } else {
+                    cell.hideDeleteButton()
+                    editModeButton.setImage(#imageLiteral(resourceName: "edit-category-button"), for: .normal)
+                }
+            }
+            inEditingMode = !inEditingMode
+        }
     }
 }
