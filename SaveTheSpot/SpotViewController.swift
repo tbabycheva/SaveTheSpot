@@ -56,13 +56,36 @@ class SpotViewController: UIViewController {
         addressLabel.text = spot.address
     }
 
+    // MARK: - Action Functions
     
     @IBAction func saveButtonTapped(_ sender: Any) {
+        guard let spot = spot else { return }
         
+        if spotCategories.count == 0 {
+            let characterAlert = UIAlertController(title: "Please attach at least one tag to this spot", message: "", preferredStyle: .alert)
+            characterAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(characterAlert, animated: true, completion: nil)
+            
+        } else {
+            
+            // Make a new spot with the core data stack's context, add categories and save to CoreData
+            if let name = spot.name, let address = spot.address {
+                
+                let CoreDataSpot = SpotController.shared.create(spotWithName: name, address: address, placemark: spot.placemark, context: CoreDataStack.context)
+                
+                for category in spotCategories {
+                    SpotController.shared.addCategory(category: category, toSpot: CoreDataSpot)
+                }
+            }
+            SpotController.shared.saveToPersistentStore()
+            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        }
+        
+        SpotController.shared.showAll()
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        
+          self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func editCategoriesButtonTapped(_ sender: Any) {
