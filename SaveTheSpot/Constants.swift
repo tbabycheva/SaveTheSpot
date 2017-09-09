@@ -19,7 +19,7 @@ class Constants {
     ]
     
     static var allIcons: [String] = [
-        "gift", "crown", "coffee", "eating-out", "shopping-bag", "shopping-cart", "moon", "sun", "heart", "star", "checkmark", "flower", "tree", "leaf", "rabbit", "duck", "cat", "dog", "paw"
+        "gift", "crown", "coffee", "eating-out", "shopping-bag", "shopping-cart", "moon", "sun", "heart", "star", "checkmark", "flower", "tree", "leaf", "rabbit", "cat", "dog", "paw", "wi_fi"
     ]
 }
 

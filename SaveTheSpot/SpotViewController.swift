@@ -44,9 +44,9 @@ class SpotViewController: UIViewController {
         
         updateViews()
         
-        if let cvl = spotCategoriesCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            cvl.estimatedItemSize = CGSize(width: 100, height: 35)
-        }
+//        if let cvl = spotCategoriesCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+//            cvl.estimatedItemSize = CGSize(width: 100, height: 35)
+//        }
     }
     
     func updateViews() {
