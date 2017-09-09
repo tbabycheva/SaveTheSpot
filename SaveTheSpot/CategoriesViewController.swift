@@ -105,4 +105,18 @@ extension CategoriesViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - Delegate Functions
 
+extension CategoriesViewController: UITableViewDelegate, UIGestureRecognizerDelegate {
+    
+    
+    // set cell height
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    // set cell color
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
+    }
+}
