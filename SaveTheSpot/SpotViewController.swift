@@ -209,4 +209,35 @@ extension SpotViewController: SpotCategoryCollectionViewCellDelegate {
     }
 }
 
+extension SpotViewController: CategoryCollectionViewCellDelegate {
+    
+    func deleteCategory(cell: CategoryCollectionViewCell) {
+        
+        guard let index = categoriesCollectionView.indexPath(for: cell) else { return }
+        
+        let category = CategoryController.shared.allCategories[index.item]
+        
+        if CategoryController.shared.containsSpots(category: category) {
+            
+            alert()
+            
+        } else {
+            
+            CategoryController.shared.deleteCategory(category: category)
+            
+            if let iconName = category.iconName {
+                CategoryController.shared.availableIcons.append(iconName)
+                CategoryController.shared.saveAvailableIconsToUserDefaults()
+            }
+        }
+        
+        categoriesCollectionView.reloadData()
+    }
+    
+    func alert() {
+        let categoryContainsSpotsAlert = UIAlertController(title: "Sorry, can't remove a tag that has spots attached to it", message: "", preferredStyle: .alert)
+        categoryContainsSpotsAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(categoryContainsSpotsAlert, animated: true, completion: nil)
+    }
+}
 
