@@ -12,4 +12,24 @@ class NewCategoryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var tagImageView: UIImageView!
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        isSelected = false
+    }
+    
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                self.layer.cornerRadius = tagImageView.frame.size.width/2
+                self.layer.borderWidth = 2.0
+                self.layer.borderColor = UIColor.neonYellow.cgColor
+                self.tagImageView.alpha = 1
+            } else {
+                self.layer.cornerRadius = tagImageView.frame.size.width/2
+                self.layer.borderWidth = 0.0
+                self.layer.borderColor = UIColor.clear.cgColor
+                self.tagImageView.alpha = 0.65
+            }
+        }
+    }
 }
