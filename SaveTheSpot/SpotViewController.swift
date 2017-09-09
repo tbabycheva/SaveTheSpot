@@ -116,3 +116,66 @@ class SpotViewController: UIViewController {
         }
     }
 }
+
+
+// MARK: - Collection View Data Source & Delegate
+
+extension SpotViewController: UICollectionViewDataSource  {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if collectionView === spotCategoriesCollectionView {
+            return spotCategories.count
+        } else if collectionView === categoriesCollectionView {
+            let cellCount = CategoryController.shared.allCategories.count
+            if cellCount == 0 {
+                inEditingMode = false
+                editModeButton.setImage(#imageLiteral(resourceName: "edit-category-button"), for: .normal)
+            }
+            return cellCount
+        } else {
+            return 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if collectionView === categoriesCollectionView {
+            
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as? CategoryCollectionViewCell else { return CategoryCollectionViewCell() }
+            
+            let category = CategoryController.shared.allCategories[indexPath.row]
+            
+            cell.categoryLabel.text = category.name
+            if let iconName = category.iconName {
+                cell.iconView.image = UIImage(named: iconName)
+            }
+            cell.delegate = self
+            
+            if inEditingMode {
+                cell.showDeleteButton()
+            } else {
+                cell.hideDeleteButton()
+            }
+            
+            return cell
+            
+        } else if collectionView === spotCategoriesCollectionView {
+            
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "spotCategoryCell", for: indexPath) as? SpotCategoryCollectionViewCell else { return SpotCategoryCollectionViewCell() }
+            
+            let category = spotCategories[indexPath.row]
+            
+            cell.categoryLabel.text = category.name
+            if let iconName = category.iconName {
+                cell.iconView.image = UIImage(named: iconName)
+            }
+            
+            cell.delegate = self
+            
+            return cell
+            
+        } else { return CategoryCollectionViewCell() }
+    }
+}
+
