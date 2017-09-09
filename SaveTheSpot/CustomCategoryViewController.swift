@@ -88,5 +88,25 @@ class CustomCategoryViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-    
 }
+
+// MARK: - Collection View Data Source & Delegate
+
+extension CustomCategoryViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return CategoryController.shared.availableIcons.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customCategoryCell", for: indexPath) as? NewCategoryCollectionViewCell else { return NewCategoryCollectionViewCell() }
+        
+        let iconName = CategoryController.shared.availableIcons[indexPath.row]
+        
+        cell.tagImageView.image = UIImage(named: iconName)
+        
+        return cell
+    }
+}
+
