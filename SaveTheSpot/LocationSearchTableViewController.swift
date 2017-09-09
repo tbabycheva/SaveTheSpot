@@ -38,3 +38,23 @@ extension LocationSearchTableViewController : UISearchResultsUpdating {
     }
 }
 
+// MARK: - Tableview Data Source Methods
+
+extension LocationSearchTableViewController {
+    
+    override  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return matchingItems.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath)
+        
+        let searchResult = matchingItems[indexPath.row].placemark
+        cell.textLabel?.text = searchResult.name
+        
+        let address = Address.shared.parseAddress(searchResult)
+        cell.detailTextLabel?.text = address
+        
+        return cell
+    }
+}
