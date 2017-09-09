@@ -39,6 +39,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIViewControllerTr
     }
 }
 
+// Current user location
+
+extension MapViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            let myLocation = CLLocationCoordinate2DMake(location.coordinate.latitude,location.coordinate.longitude)
+            let span = MKCoordinateSpanMake(0.02, 0.02)
+            let region = MKCoordinateRegionMake(myLocation, span)
+            mapView.setRegion(region, animated: false)
+        }
+        manager.stopUpdatingLocation()
+    }
+}
+
 extension MapViewController {
     
     @IBAction func currentLocationButtonTapped(_ sender: Any) {
