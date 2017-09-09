@@ -15,6 +15,28 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIViewControllerTr
     
     @IBOutlet weak var mapView: MKMapView!
     
+    var locationManager = CLLocationManager()
+    var annotationView: MKAnnotationView?
+    
+    var selectedPin: MKAnnotation?
+    
+    // MARK: - Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        mapView.delegate = self
+        mapView.showsUserLocation = true
+        
+        // Show current user location
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.startUpdatingLocation()
+        }
+    }
 }
 
 extension MapViewController {
