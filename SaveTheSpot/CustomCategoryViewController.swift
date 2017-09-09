@@ -43,12 +43,50 @@ class CustomCategoryViewController: UIViewController, UITextFieldDelegate {
         CategoryController.shared.availableIcons = CategoryController.shared.loadFromUserDefaults()
     }
     
+    // MARK: - Action Functions
+
     @IBAction func dismissButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
+        guard let name = tagName.text else { return }
         
+        if iconName.characters.count == 0 {
+            alert(title: "Pick an icon for this tag please")
+        } else if name.characters.count == 0  {
+            alert(title: "Give this tag a name first")
+        } else if CategoryController.shared.categoryNames.contains(name) {
+            alert(title: "Looks like this tag already exists")
+        } else {
+            CategoryController.shared.createCategory(withName: name, iconName: iconName)
+            
+            if let index = CategoryController.shared.availableIcons.index(of: "\(iconName)") {
+                CategoryController.shared.availableIcons.remove(at: index)
+                CategoryController.shared.saveAvailableIconsToUserDefaults()
+                dismiss(animated: true, completion: nil)
+            }
+        }
+        delegate?.saveCategoryWasTapped()
+    }
+    
+    // MARK: - Helper Functions
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = tagName.text else { return true }
+        let newLength = text.characters.count + string.characters.count - range.length
+        return newLength <= limitLength
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func alert(title: String) {
+        let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
