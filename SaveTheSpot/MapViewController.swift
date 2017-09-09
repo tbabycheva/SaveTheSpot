@@ -54,6 +54,29 @@ extension MapViewController: CLLocationManagerDelegate {
     }
 }
 
+// Display pins on the map
+
+extension MapViewController {
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let identifier = "MySpot"
+        
+        // exclude the annotation for current user location
+        if annotation.isKind(of: MKUserLocation.self) { return nil }
+        
+        guard let customAnnotation = annotation as? SpotMKPointAnnotation else { return nil }
+        var annotationView:MKAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView?.canShowCallout = true
+            annotationView?.image = UIImage(named: customAnnotation.iconName)
+            
+        }
+        return annotationView
+    }
+}
+
 extension MapViewController {
     
     @IBAction func currentLocationButtonTapped(_ sender: Any) {
