@@ -110,3 +110,12 @@ extension CustomCategoryViewController: UICollectionViewDataSource {
     }
 }
 
+extension CustomCategoryViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        iconName = CategoryController.shared.availableIcons[indexPath.row]
+        
+    }
+}
+
