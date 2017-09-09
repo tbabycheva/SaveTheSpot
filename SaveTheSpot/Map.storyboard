@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="h03-JK-lDA">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="v8f-56-iSz">
+            <objects>
+                <viewController id="h03-JK-lDA" customClass="MapViewController" customModule="SaveTheSpot" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ifG-0v-NIN"/>
+                        <viewControllerLayoutGuide type="bottom" id="Yjt-8t-bpG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wFX-Ce-tRa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsBuildings="NO" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wat-SP-N7m">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <outlet property="delegate" destination="h03-JK-lDA" id="Ysv-Rg-58r"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xee-gT-xxx" userLabel="Categories">
+                                <rect key="frame" x="0.0" y="611.5" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Xee-gT-xxx" secondAttribute="height" multiplier="1:1" id="n4o-4a-qRf"/>
+                                    <constraint firstAttribute="width" constant="35" id="tYb-G5-9RE"/>
+                                </constraints>
+                                <state key="normal" image="list-button"/>
+                                <connections>
+                                    <segue destination="lqG-ai-uD4" kind="presentation" identifier="toCategories" id="LIU-Pn-W2o"/>
+                                </connections>
+                            </button>
+                            <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YyM-dm-xNc">
+                                <rect key="frame" x="132" y="28" width="111" height="29"/>
+                                <color key="backgroundColor" red="0.9205288290977478" green="0.93996495008468628" blue="0.010318818502128124" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <segments>
+                                    <segment title="  Map  "/>
+                                    <segment title="  List  "/>
+                                </segments>
+                                <color key="tintColor" red="0.18667054176330566" green="0.22367987036705017" blue="0.25067690014839172" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ve-74-fOU" userLabel="Add">
+                                <rect key="frame" x="165.5" y="607" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="6ve-74-fOU" secondAttribute="height" multiplier="1:1" id="43P-Wn-KFI"/>
+                                    <constraint firstAttribute="width" constant="44" id="guF-fN-ALN"/>
+                                </constraints>
+                                <state key="normal" image="add-button"/>
+                                <connections>
+                                    <segue destination="JTn-yV-bN0" kind="presentation" identifier="toSearch" id="gdf-zf-MdE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aot-Db-5Jg" userLabel="Current Location">
+                                <rect key="frame" x="325" y="614.5" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="AcP-lN-LOl"/>
+                                    <constraint firstAttribute="width" secondItem="Aot-Db-5Jg" secondAttribute="height" multiplier="1:1" id="rBW-32-WAi"/>
+                                </constraints>
+                                <state key="normal" image="current-location-button"/>
+                                <connections>
+                                    <action selector="currentLocationButtonTapped:" destination="h03-JK-lDA" eventType="touchUpInside" id="FJ9-KV-45u"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Wat-SP-N7m" secondAttribute="trailing" id="2Sm-Ky-vwy"/>
+                            <constraint firstAttribute="bottom" secondItem="Wat-SP-N7m" secondAttribute="bottom" id="2kP-61-qHS"/>
+                            <constraint firstItem="YyM-dm-xNc" firstAttribute="centerX" secondItem="wFX-Ce-tRa" secondAttribute="centerX" id="8Cn-3o-ZvR"/>
+                            <constraint firstItem="6ve-74-fOU" firstAttribute="centerX" secondItem="wFX-Ce-tRa" secondAttribute="centerX" id="D9I-PM-6th"/>
+                            <constraint firstItem="Aot-Db-5Jg" firstAttribute="centerY" secondItem="6ve-74-fOU" secondAttribute="centerY" id="Kzj-1N-Zmd"/>
+                            <constraint firstItem="Wat-SP-N7m" firstAttribute="top" secondItem="wFX-Ce-tRa" secondAttribute="top" id="UL5-o2-xXP"/>
+                            <constraint firstItem="Xee-gT-xxx" firstAttribute="centerY" secondItem="6ve-74-fOU" secondAttribute="centerY" id="a6D-wE-u2O"/>
+                            <constraint firstItem="Wat-SP-N7m" firstAttribute="centerY" secondItem="wFX-Ce-tRa" secondAttribute="centerY" id="dFM-bN-OSq"/>
+                            <constraint firstItem="YyM-dm-xNc" firstAttribute="top" secondItem="ifG-0v-NIN" secondAttribute="bottom" constant="8" id="hAe-dB-dAX"/>
+                            <constraint firstItem="Yjt-8t-bpG" firstAttribute="top" secondItem="6ve-74-fOU" secondAttribute="bottom" constant="16" id="uA4-yO-34X"/>
+                            <constraint firstItem="Wat-SP-N7m" firstAttribute="leading" secondItem="wFX-Ce-tRa" secondAttribute="leading" id="wfs-VU-ryn"/>
+                            <constraint firstAttribute="trailing" secondItem="Aot-Db-5Jg" secondAttribute="trailing" constant="20" id="x3L-6Z-Lvl"/>
+                            <constraint firstItem="Xee-gT-xxx" firstAttribute="leading" secondItem="wFX-Ce-tRa" secondAttribute="leading" id="z29-89-scY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="Wat-SP-N7m" id="DpN-4F-UG0"/>
+                        <segue destination="Rhm-0j-Sc3" kind="presentation" identifier="toList" id="Cev-RS-Yua"/>
+                        <segue destination="TGH-YR-aZz" kind="presentation" identifier="toSpotDetail" id="QVB-kp-OvP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="87s-yL-gwZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="209" y="51"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="bV5-Cp-oZ8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Search" id="JTn-yV-bN0" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qYs-1T-NKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="846" y="329"/>
+        </scene>
+        <!--List-->
+        <scene sceneID="VqV-BZ-qBz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="List" id="Rhm-0j-Sc3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6vd-To-Jho" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="860" y="7"/>
+        </scene>
+        <!--Spot-->
+        <scene sceneID="GGD-fE-dKf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Spot" id="TGH-YR-aZz" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="urg-S7-u6f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="866" y="126"/>
+        </scene>
+        <!--Categories-->
+        <scene sceneID="MtE-fx-XAL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Categories" id="lqG-ai-uD4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dUL-Qw-Ggv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="900" y="210"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="add-button" width="65" height="65"/>
+        <image name="current-location-button" width="23" height="23"/>
+        <image name="list-button" width="65" height="65"/>
+    </resources>
+</document>
