@@ -60,9 +60,12 @@ class CategoriesViewController: UIViewController {
     // MARK: - Action Functions
     
     @IBAction func showAllButtonTapped(_ sender: Any) {
-       
+        SpotController.shared.showAll()
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func myMapButtonTapped(_ sender: Any) {
+        SpotController.shared.showAll()
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 }
