@@ -54,6 +54,67 @@ class CategoryController {
         saveAllIconsToUserDefaults()
         UserDefaults.standard.set(true, forKey: "allIconsAreSaved")
     }
+    
+    // MARK: - CRUD
+    
+    // used in Categories Collection View
+    func createCategory(withName name: String, iconName: String) {
+        let _ = CategoryMO(name: name, iconName: iconName)
+        saveToPersistentStore()
+    }
+    
+    // used in Categories Collection View
+    func deleteCategory(category: CategoryMO) {
+        if category.spots?.count != 0 {
+        } else {
+            guard let iconName = category.iconName else { return }
+            CategoryController.shared.availableIcons.append(iconName)
+            category.managedObjectContext?.delete(category)
+            saveIconsToPersistentStore()
+            saveToPersistentStore()
+        }
+    }
+    
+    // called before deleting a category
+    func containsSpots(category: CategoryMO) -> Bool {
+        if category.spots?.count == 0 {
+            return false
+        } else {
+            return true   // present alert "Can't remove a category containing spots"
+        }
+    }
+    
+    // used in modal Category View
+    var allCategoriesUsedBySpotsSorted: [CategoryMO] {
+        
+        var categoriesUsedBySpots: [CategoryMO] = []
+        
+        for spot in SpotController.shared.spots {
+            
+            guard let categories = spot.categories?.array as? [CategoryMO] else { return [] }
+            
+            for category in categories {
+                if !categoriesUsedBySpots.contains(category) { categoriesUsedBySpots.append(category) }
+            }
+        }
+        
+        return categoriesUsedBySpots.sorted(by: {
+            guard let firstSpotName = $0.name else { return false }
+            guard let secondSpotName = $1.name else { return true }
+            return firstSpotName < secondSpotName})
+    }
+    
+    var categoryNames: [String] {
+        get {
+            return allCategoriesUsedBySpotsSorted.flatMap { $0.name }
+        }
+    }
+    
+    var iconNames: [String] {
+        get {
+            return allCategoriesUsedBySpotsSorted.flatMap { $0.iconName }
+        }
+    }
 }
 
 
