@@ -12,4 +12,6 @@ import MapKit
 class SearchViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
+    
+    var mapView: MKMapView?
 }

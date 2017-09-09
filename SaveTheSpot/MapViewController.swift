@@ -20,6 +20,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIViewControllerTr
     
     var selectedPin: MKAnnotation?
     
+    lazy var slideInTransitioningDelegate = SlideInPresentationManager()
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -121,6 +123,29 @@ extension MapViewController {
         locationManager.startUpdatingLocation()
     }
 }
+
+// MARK: - Navigation
+
+extension MapViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toSearch" {
+            let searchNavigationController = segue.destination as? UINavigationController
+            let searchVC = searchNavigationController?.topViewController as? SearchViewController
+            searchVC?.mapView = mapView
+        }
+            
+        else if let controller = segue.destination as? CategoriesViewController {
+            if segue.identifier == "toCategories" {
+                slideInTransitioningDelegate.direction = .left
+            }
+            controller.transitioningDelegate = slideInTransitioningDelegate
+            controller.modalPresentationStyle = .custom
+        }
+    }
+}
+
 
 // MARK: - Gesture Recognition - Displaying / Dismissing Routes and Bubbles
 extension MapViewController: UIGestureRecognizerDelegate {
