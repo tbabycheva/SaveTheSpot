@@ -270,20 +270,11 @@
                         <outlet property="imageView" destination="ihm-zI-HeJ" id="ylo-kW-bWO"/>
                         <outlet property="nameLabel" destination="eSq-wv-49e" id="lkd-cN-tjz"/>
                         <outlet property="spotCategoriesCollectionView" destination="QHZ-sx-074" id="CNI-OO-fmE"/>
-                        <segue destination="eeB-vC-oq2" kind="presentation" identifier="toDetail" modalTransitionStyle="coverVertical" id="ljf-SA-Ouf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZQ-Z1-g5U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1310" y="142"/>
-        </scene>
-        <!--Detail-->
-        <scene sceneID="E8m-j3-0un">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Detail" id="eeB-vC-oq2" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K0O-N3-Gl3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1882" y="14"/>
         </scene>
         <!--CustomCategory-->
         <scene sceneID="BBP-aw-DyC">
@@ -291,7 +282,7 @@
                 <viewControllerPlaceholder storyboardName="CustomCategory" id="0I0-N0-tgc" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J8B-J3-3sh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1935" y="254"/>
+            <point key="canvasLocation" x="1980" y="141"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EMm-93-bIt">
