@@ -119,4 +119,18 @@ extension CategoriesViewController: UITableViewDelegate, UIGestureRecognizerDele
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
     }
+    
+    // delete a spot
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            
+            let category = CategoryController.shared.allCategoriesUsedBySpotsSorted[indexPath.section]
+            let spots = SpotController.shared.spotsWith(category: category)
+            let spot = spots[indexPath.row]
+            SpotController.shared.remove(category: category, fromSpot: spot)
+            
+            tableView.reloadData()
+        }
+    }
+
 }
