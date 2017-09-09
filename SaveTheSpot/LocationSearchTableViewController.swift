@@ -58,3 +58,30 @@ extension LocationSearchTableViewController {
         return cell
     }
 }
+
+// MARK: - Navigaiton
+
+extension LocationSearchTableViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toSpot" {
+            
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                
+                let selectedItem = matchingItems[indexPath.row].placemark
+                
+                guard let name = selectedItem.name else { return }
+                let address = Address.shared.parseAddress(selectedItem)
+                
+                let spot = SpotController.shared.create(spotWithName: name, address: address, placemark: selectedItem, context: nil)
+                
+                let destinationNavigationController = segue.destination as? UINavigationController
+                
+                let destinationVC = destinationNavigationController?.topViewController as? SpotViewController
+                
+                destinationVC?.spot = spot
+            }
+        }
+    }
+}
