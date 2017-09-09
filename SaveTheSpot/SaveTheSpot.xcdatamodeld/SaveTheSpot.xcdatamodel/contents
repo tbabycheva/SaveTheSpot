@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CategoryMO" representedClassName="CategoryMO" syncable="YES" codeGenerationType="class">
+        <attribute name="iconName" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="spots" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="SpotMO" inverseName="categories" inverseEntity="SpotMO" syncable="YES"/>
+    </entity>
+    <entity name="SpotMO" representedClassName="SpotMO" syncable="YES" codeGenerationType="class">
+        <attribute name="address" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CategoryMO" inverseName="spots" inverseEntity="CategoryMO" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CategoryMO" positionX="-45" positionY="36" width="128" height="90"/>
+        <element name="SpotMO" positionX="-252" positionY="21" width="128" height="120"/>
+    </elements>
+</model>
