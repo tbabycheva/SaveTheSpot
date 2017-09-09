@@ -37,5 +37,13 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         resultSearchController?.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
 
+        // Add action to cancel button
+        resultSearchController?.searchBar.delegate = self
+        
+        locationSearchTable.mapView = mapView
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        dismiss(animated: true, completion: nil)
     }
 }
