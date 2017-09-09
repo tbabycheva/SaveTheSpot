@@ -179,3 +179,19 @@ extension SpotViewController: UICollectionViewDataSource  {
     }
 }
 
+extension SpotViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard !inEditingMode else { return }
+        
+        let category = CategoryController.shared.allCategories[indexPath.row]
+        
+        if !spotCategories.contains(category) {
+            spotCategories.append(category)
+        }
+        
+        spotCategoriesCollectionView.reloadData()
+    }
+}
+
