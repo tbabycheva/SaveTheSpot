@@ -195,3 +195,18 @@ extension SpotViewController: UICollectionViewDelegate {
     }
 }
 
+// MARK: - Delegate Methods
+
+extension SpotViewController: SpotCategoryCollectionViewCellDelegate {
+    
+    func removeCategory(cell: SpotCategoryCollectionViewCell) {
+        
+        guard let indexPath = spotCategoriesCollectionView.indexPath(for: cell) else { return }
+        
+        spotCategories.remove(at: indexPath.row)
+        
+        spotCategoriesCollectionView.reloadData()
+    }
+}
+
+
