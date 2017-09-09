@@ -8,4 +8,20 @@
 
 import Foundation
 
+class Constants {
+    
+    static let defaultCategories: [CategoryMO] = [
+        
+        CategoryMO(name: "organic", iconName: "cactus"),
+        CategoryMO(name: "pizza", iconName: "pizza"),
+        CategoryMO(name: "travel", iconName: "suitcase"),
+        CategoryMO(name: "to try", iconName: "question"),
+    ]
+    
+    static var allIcons: [String] = [
+        "gift", "crown", "coffee", "eating-out", "shopping-bag", "shopping-cart", "moon", "sun", "heart", "star", "checkmark", "flower", "tree", "leaf", "rabbit", "duck", "cat", "dog", "paw"
+    ]
+}
+
+
 
