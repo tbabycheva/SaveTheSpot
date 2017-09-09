@@ -241,3 +241,22 @@ extension SpotViewController: CategoryCollectionViewCellDelegate {
     }
 }
 
+extension SpotViewController: CustomCategoryViewControllerDelegate {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toNewTagModal" {
+            
+            if inEditingMode {
+                toggleEditMode()
+            }
+            
+            let destinationVC = segue.destination as? CustomCategoryViewController
+            destinationVC?.delegate = self
+        }
+    }
+    
+    func saveCategoryWasTapped() {
+        categoriesCollectionView.reloadData()
+    }
+}
+
