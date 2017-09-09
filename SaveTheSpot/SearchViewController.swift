@@ -24,5 +24,13 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTableViewController
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
         resultSearchController?.searchResultsUpdater = locationSearchTable
+        
+        // Set up the search bar
+        let searchBar = resultSearchController!.searchBar
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Search for places"
+        searchBar.showsCancelButton = true
+        navigationItem.titleView = resultSearchController?.searchBar
     }
+    
 }
