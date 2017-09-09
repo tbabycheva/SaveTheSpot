@@ -8,3 +8,16 @@
 
 import Foundation
 import CoreData
+
+extension CategoryMO {
+    
+    convenience init(name: String,
+                     iconName: String,
+                     context: NSManagedObjectContext = CoreDataStack.context) {
+        
+        self.init(context: context)
+        
+        self.name = name
+        self.iconName = iconName
+    }
+}
