@@ -132,5 +132,46 @@ extension CategoriesViewController: UITableViewDelegate, UIGestureRecognizerDele
             tableView.reloadData()
         }
     }
+    // select a spot to show on the map
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let indexPath = self.tableView.indexPathForSelectedRow {
+            
+            let category = CategoryController.shared.allCategoriesUsedBySpotsSorted[indexPath.section]
+            let spots = SpotController.shared.spotsWith(category: category)
+            
+            let spot = spots[indexPath.row]
+            
+            SpotController.shared.spotsToDisplay = [spot]
+        }
+        
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    // select a category to show on the map
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let view = UITableViewHeaderFooterView()
+        
+        let tapRecognizer = MyTapGestureRecognizer(target: self, action: #selector(handleTap))
+        
+        tapRecognizer.categorySelected = CategoryController.shared.allCategoriesUsedBySpotsSorted[section]
+        
+        view.addGestureRecognizer(tapRecognizer)
+        
+        return view
+    }
+    
+    func handleTap(gestureRecognizer: MyTapGestureRecognizer){
+        
+        if let categorySelected = gestureRecognizer.categorySelected {
+            let spots = SpotController.shared.spotsWith(category: categorySelected)
+            SpotController.shared.spotsToDisplay = spots
+        }
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+}
 
+class MyTapGestureRecognizer: UITapGestureRecognizer {
+    var categorySelected: CategoryMO?
 }
