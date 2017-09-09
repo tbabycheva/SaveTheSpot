@@ -31,6 +31,11 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         searchBar.placeholder = "Search for places"
         searchBar.showsCancelButton = true
         navigationItem.titleView = resultSearchController?.searchBar
-    }
     
+        // Configure the UISearchController appearance
+        resultSearchController?.hidesNavigationBarDuringPresentation = false
+        resultSearchController?.dimsBackgroundDuringPresentation = true
+        definesPresentationContext = true
+
+    }
 }
