@@ -29,6 +29,7 @@
 		217E4FE31F3CFD1D00F4C6B1 /* Spot.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217E4FE21F3CFD1D00F4C6B1 /* Spot.storyboard */; };
 		218B65E01F4608F1007AD23A /* SlideInPresentationController..swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B65DF1F4608F1007AD23A /* SlideInPresentationController..swift */; };
 		218DE59D1F43B68B00985AA5 /* AddressManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218DE59C1F43B68B00985AA5 /* AddressManager.swift */; };
+		219CE6491F667AEF009C19A4 /* LeftAlignedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219CE6481F667AEF009C19A4 /* LeftAlignedFlowLayout.swift */; };
 		219EAC3A1F4B9340001829C1 /* SpotMKPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219EAC391F4B9340001829C1 /* SpotMKPointAnnotation.swift */; };
 		21AA3D911F4DEA6100441D34 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AA3D901F4DEA6100441D34 /* CoreData.framework */; };
 		21AA3D931F4DEC0D00441D34 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AA3D921F4DEC0D00441D34 /* CoreDataStack.swift */; };
@@ -67,6 +68,7 @@
 		217E4FE21F3CFD1D00F4C6B1 /* Spot.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Spot.storyboard; sourceTree = "<group>"; };
 		218B65DF1F4608F1007AD23A /* SlideInPresentationController..swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideInPresentationController..swift; sourceTree = "<group>"; };
 		218DE59C1F43B68B00985AA5 /* AddressManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressManager.swift; sourceTree = "<group>"; };
+		219CE6481F667AEF009C19A4 /* LeftAlignedFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftAlignedFlowLayout.swift; sourceTree = "<group>"; };
 		219EAC391F4B9340001829C1 /* SpotMKPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotMKPointAnnotation.swift; sourceTree = "<group>"; };
 		21AA3D901F4DEA6100441D34 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		21AA3D921F4DEC0D00441D34 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				21C38B351F460792001AF695 /* SlideInPresentationAnimator.swift */,
 				218B65DF1F4608F1007AD23A /* SlideInPresentationController..swift */,
 				21C38B321F460736001AF695 /* SlideInPresentationManager.swift */,
+				219CE6481F667AEF009C19A4 /* LeftAlignedFlowLayout.swift */,
 			);
 			name = Presentation;
 			sourceTree = "<group>";
@@ -214,10 +217,10 @@
 		21C38B341F460745001AF695 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				218DE59C1F43B68B00985AA5 /* AddressManager.swift */,
-				21D83DC81F47CE34005C87A4 /* Constants.swift */,
-				21B79DD21F46580E0091281F /* Theme.swift */,
 				21AA3D921F4DEC0D00441D34 /* CoreDataStack.swift */,
+				21D83DC81F47CE34005C87A4 /* Constants.swift */,
+				218DE59C1F43B68B00985AA5 /* AddressManager.swift */,
+				21B79DD21F46580E0091281F /* Theme.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				217E4FE11F3CFD0600F4C6B1 /* SpotViewController.swift in Sources */,
 				21FAE3221F4904FE00D5E9A4 /* SpotCategoryCollectionViewCell.swift in Sources */,
 				21AA3D961F4DECB700441D34 /* SaveTheSpot.xcdatamodeld in Sources */,
+				219CE6491F667AEF009C19A4 /* LeftAlignedFlowLayout.swift in Sources */,
 				218B65E01F4608F1007AD23A /* SlideInPresentationController..swift in Sources */,
 				21AA3D931F4DEC0D00441D34 /* CoreDataStack.swift in Sources */,
 				2173BF711F452A2500C4850B /* CategoryTableViewCell.swift in Sources */,

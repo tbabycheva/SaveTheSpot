@@ -31,7 +31,7 @@ class SpotViewController: UIViewController {
     }
     
     var spotCategories: [CategoryMO] = []
-    
+        
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -43,10 +43,14 @@ class SpotViewController: UIViewController {
         spotCategoriesCollectionView.dataSource = self
         
         updateViews()
+       
+//        if let flowLayout = spotCategoriesCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+//            flowLayout.estimatedItemSize = CGSize(width: 1, height: 35)
+//        }
         
-        if let flowLayout = spotCategoriesCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.estimatedItemSize = CGSize(width: 1, height: 35)
-        }
+        let layout = LeftAlignedFlowLayout()
+        layout.estimatedItemSize = CGSize(width: 1, height: 35)
+        spotCategoriesCollectionView.collectionViewLayout = layout
     }
     
     func updateViews() {
