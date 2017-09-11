@@ -32,7 +32,7 @@
                                             <constraint firstAttribute="width" constant="22" id="4FP-ut-8w4"/>
                                             <constraint firstAttribute="width" secondItem="wAk-JI-4hw" secondAttribute="height" multiplier="1:1" id="ALW-E6-ruY"/>
                                         </constraints>
-                                        <state key="normal" image="close-button-color"/>
+                                        <state key="normal" image="close"/>
                                         <connections>
                                             <action selector="dismissButtonTapped:" destination="Wxu-XR-Xhs" eventType="touchUpInside" id="yDp-PY-7dz"/>
                                         </connections>
@@ -130,7 +130,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="close-button-color" width="22" height="22"/>
-        <image name="placeholder" width="102" height="130"/>
+        <image name="close" width="22" height="22"/>
+        <image name="placeholder" width="25" height="32"/>
     </resources>
 </document>

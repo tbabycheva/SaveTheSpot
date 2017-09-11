@@ -44,9 +44,9 @@ class SpotViewController: UIViewController {
         
         updateViews()
         
-//        if let cvl = spotCategoriesCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-//            cvl.estimatedItemSize = CGSize(width: 100, height: 35)
-//        }
+        if let flowLayout = spotCategoriesCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.estimatedItemSize = CGSize(width: 1, height: 35)
+        }
     }
     
     func updateViews() {
@@ -167,6 +167,7 @@ extension SpotViewController: UICollectionViewDataSource  {
             let category = spotCategories[indexPath.row]
             
             cell.categoryLabel.text = category.name
+            
             if let iconName = category.iconName {
                 cell.iconView.image = UIImage(named: iconName)
             }
@@ -190,8 +191,9 @@ extension SpotViewController: UICollectionViewDelegate {
         if !spotCategories.contains(category) {
             spotCategories.append(category)
         }
-        
         spotCategoriesCollectionView.reloadData()
+        spotCategoriesCollectionView.collectionViewLayout.invalidateLayout()
+
     }
 }
 
@@ -206,6 +208,8 @@ extension SpotViewController: SpotCategoryCollectionViewCellDelegate {
         spotCategories.remove(at: indexPath.row)
         
         spotCategoriesCollectionView.reloadData()
+        spotCategoriesCollectionView.collectionViewLayout.invalidateLayout()
+
     }
 }
 

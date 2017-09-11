@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "delete-category-button.png",
+      "filename" : "Delete.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Delete@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Delete@3x.png",
       "scale" : "3x"
     }
   ],

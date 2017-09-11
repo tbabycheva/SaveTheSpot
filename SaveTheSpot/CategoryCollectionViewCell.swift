@@ -36,8 +36,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         deleteButton.isHidden = true
     }
     
-        @IBAction func deleteButtonDidPress(sender: UIButton) {
-            delegate?.deleteCategory(cell: self)
+    @IBAction func deleteButtonDidPress(sender: UIButton) {
+        delegate?.deleteCategory(cell: self)
     }
 }
 

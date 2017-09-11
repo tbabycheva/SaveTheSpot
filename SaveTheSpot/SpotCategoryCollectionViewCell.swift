@@ -16,12 +16,10 @@ class SpotCategoryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var deleteButton: UIButton!
     
     weak var delegate: SpotCategoryCollectionViewCellDelegate?
-
     
     @IBAction func deleteCategoryButtonTapped(_ sender: Any) {
-        delegate?.removeCategory(cell:self)
+        delegate?.removeCategory(cell: self)
     }
 }
