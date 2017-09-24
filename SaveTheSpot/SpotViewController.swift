@@ -56,15 +56,6 @@ class SpotViewController: UIViewController {
         addressLabel.text = spot.address
     }
     
-//    func scrollToBottom() {
-//        let section = 0
-//        if spotCategoriesCollectionView.numberOfItems(inSection: section) > 0 {
-//            let item = spotCategoriesCollectionView.numberOfItems(inSection: section) - 1
-//            let lastIndexPath = IndexPath(item: item, section: section)
-//            spotCategoriesCollectionView.scrollToItem(at: lastIndexPath, at: .bottom, animated: false)
-//        }
-//    }
-    
     // MARK: - Action Functions
     
     @IBAction func saveButtonTapped(_ sender: Any) {
@@ -201,8 +192,14 @@ extension SpotViewController: UICollectionViewDelegate {
             spotCategories.append(category)
         }
         spotCategoriesCollectionView.reloadData()
-        spotCategoriesCollectionView.collectionViewLayout.invalidateLayout()
         
+        let categoryCount = spotCategoriesCollectionView.numberOfItems(inSection: 0)
+        if categoryCount > 0 {
+            let lastIndexPath = IndexPath(row: (categoryCount-1), section: 0)
+            spotCategoriesCollectionView.scrollToItem(at: lastIndexPath, at: .bottom, animated: true)
+        }
+        
+        spotCategoriesCollectionView.collectionViewLayout.invalidateLayout()
     }
 }
 
