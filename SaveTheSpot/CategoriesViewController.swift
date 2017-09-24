@@ -162,7 +162,7 @@ extension CategoriesViewController: UITableViewDelegate, UIGestureRecognizerDele
         return view
     }
     
-    func handleTap(gestureRecognizer: MyTapGestureRecognizer){
+    @objc func handleTap(gestureRecognizer: MyTapGestureRecognizer){
         
         if let categorySelected = gestureRecognizer.categorySelected {
             let spots = SpotController.shared.spotsWith(category: categorySelected)

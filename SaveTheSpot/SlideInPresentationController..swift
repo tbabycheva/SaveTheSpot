@@ -98,7 +98,7 @@ private extension SlideInPresentationController {
     }
     
     // dismiss modal when tapped on a dimmed view
-    dynamic func handleTap(recognizer: UITapGestureRecognizer) {
+    @objc dynamic func handleTap(recognizer: UITapGestureRecognizer) {
         presentingViewController.dismiss(animated: true)
     }
 }

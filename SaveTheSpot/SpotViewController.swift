@@ -31,7 +31,7 @@ class SpotViewController: UIViewController {
     }
     
     var spotCategories: [CategoryMO] = []
-        
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -43,10 +43,6 @@ class SpotViewController: UIViewController {
         spotCategoriesCollectionView.dataSource = self
         
         updateViews()
-       
-//        if let flowLayout = spotCategoriesCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-//            flowLayout.estimatedItemSize = CGSize(width: 1, height: 35)
-//        }
         
         let layout = LeftAlignedFlowLayout()
         layout.estimatedItemSize = CGSize(width: 1, height: 35)
@@ -59,6 +55,15 @@ class SpotViewController: UIViewController {
         nameLabel.text = spot.name
         addressLabel.text = spot.address
     }
+    
+//    func scrollToBottom() {
+//        let section = 0
+//        if spotCategoriesCollectionView.numberOfItems(inSection: section) > 0 {
+//            let item = spotCategoriesCollectionView.numberOfItems(inSection: section) - 1
+//            let lastIndexPath = IndexPath(item: item, section: section)
+//            spotCategoriesCollectionView.scrollToItem(at: lastIndexPath, at: .bottom, animated: false)
+//        }
+//    }
     
     // MARK: - Action Functions
     
@@ -197,7 +202,7 @@ extension SpotViewController: UICollectionViewDelegate {
         }
         spotCategoriesCollectionView.reloadData()
         spotCategoriesCollectionView.collectionViewLayout.invalidateLayout()
-
+        
     }
 }
 
@@ -213,7 +218,7 @@ extension SpotViewController: SpotCategoryCollectionViewCellDelegate {
         
         spotCategoriesCollectionView.reloadData()
         spotCategoriesCollectionView.collectionViewLayout.invalidateLayout()
-
+        
     }
 }
 

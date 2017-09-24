@@ -53,7 +53,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIViewControllerTr
         updateViews()
     }
     
-    func updateViews() {
+    @objc func updateViews() {
         
         guard self.isViewLoaded else { return }
         
