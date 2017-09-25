@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Soj-li-4fU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Soj-li-4fU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,7 +27,7 @@
                                 <rect key="frame" x="8" y="72" width="359" height="160"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PCK-UP-UT8" userLabel="Spot Stack View">
-                                        <rect key="frame" x="16" y="16" width="335" height="42"/>
+                                        <rect key="frame" x="16" y="16" width="335" height="41.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="ihm-zI-HeJ">
                                                 <rect key="frame" x="0.0" y="1" width="40" height="40"/>
@@ -36,16 +37,16 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="jLd-Mv-vdW">
-                                                <rect key="frame" x="48" y="0.0" width="287" height="42"/>
+                                                <rect key="frame" x="48" y="0.0" width="287" height="41.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSq-wv-49e">
-                                                        <rect key="frame" x="0.0" y="0.0" width="287" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="287" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZA-bk-eaL">
-                                                        <rect key="frame" x="0.0" y="25" width="287" height="17"/>
+                                                        <rect key="frame" x="0.0" y="24.5" width="287" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -55,32 +56,38 @@
                                         </subviews>
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QHZ-sx-074">
-                                        <rect key="frame" x="8" y="74" width="343" height="86"/>
+                                        <rect key="frame" x="8" y="73" width="343" height="86.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iOw-HN-Wf1">
-                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="itemSize" width="100" height="30"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="left" reuseIdentifier="spotCategoryCell" id="sns-sU-FmQ" customClass="SpotCategoryCollectionViewCell" customModule="SaveTheSpot" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBV-aq-RZT">
-                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="38"/>
+                                                            <rect key="frame" x="0.0" y="0.5" width="100" height="30"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cactus" translatesAutoresizingMaskIntoConstraints="NO" id="ume-uV-456">
-                                                                    <rect key="frame" x="0.0" y="8" width="30" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="30" id="NM5-RC-TO0"/>
                                                                         <constraint firstAttribute="width" secondItem="ume-uV-456" secondAttribute="height" multiplier="1:1" id="j1W-Bl-SDv"/>
                                                                     </constraints>
                                                                 </imageView>
+                                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to try" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZgM-Wz-YTB">
+                                                                    <rect key="frame" x="34" y="6" width="50" height="18"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <color key="textColor" red="0.16758918762207031" green="0.19966411590576172" blue="0.22470569610595703" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="right" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5e-rV-CkH" userLabel="Delete Button">
                                                                     <rect key="frame" x="70" y="0.0" width="30" height="30"/>
                                                                     <constraints>
@@ -92,16 +99,11 @@
                                                                         <action selector="deleteCategoryButtonTapped:" destination="sns-sU-FmQ" eventType="touchUpInside" id="vB2-6c-vwA"/>
                                                                     </connections>
                                                                 </button>
-                                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to try" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZgM-Wz-YTB">
-                                                                    <rect key="frame" x="34" y="14" width="50" height="18"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                    <color key="textColor" red="0.16758918762207031" green="0.19966411590576172" blue="0.22470569610595703" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstItem="ZgM-Wz-YTB" firstAttribute="centerY" secondItem="ume-uV-456" secondAttribute="centerY" id="1Bz-UB-8vh"/>
+                                                                <constraint firstItem="ume-uV-456" firstAttribute="top" secondItem="yBV-aq-RZT" secondAttribute="top" id="4nx-It-hKC"/>
                                                                 <constraint firstItem="ume-uV-456" firstAttribute="leading" secondItem="yBV-aq-RZT" secondAttribute="leading" id="7RZ-fl-fep"/>
                                                                 <constraint firstAttribute="trailing" secondItem="T5e-rV-CkH" secondAttribute="trailing" id="CiC-y6-oxO"/>
                                                                 <constraint firstItem="ZgM-Wz-YTB" firstAttribute="leading" secondItem="ume-uV-456" secondAttribute="trailing" constant="4" id="OjV-gL-CGJ"/>
@@ -113,9 +115,8 @@
                                                     </subviews>
                                                 </view>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="yBV-aq-RZT" secondAttribute="bottom" id="6p2-gh-bjz"/>
                                                     <constraint firstItem="yBV-aq-RZT" firstAttribute="leading" secondItem="sns-sU-FmQ" secondAttribute="leading" id="6z5-HF-zD4"/>
-                                                    <constraint firstItem="yBV-aq-RZT" firstAttribute="top" secondItem="sns-sU-FmQ" secondAttribute="top" id="GDe-9N-Wk8"/>
+                                                    <constraint firstItem="yBV-aq-RZT" firstAttribute="centerY" secondItem="sns-sU-FmQ" secondAttribute="centerY" id="PFc-28-8SU"/>
                                                     <constraint firstAttribute="trailing" secondItem="yBV-aq-RZT" secondAttribute="trailing" id="vHr-U6-iNc"/>
                                                 </constraints>
                                                 <connections>
@@ -142,7 +143,7 @@
                                 <rect key="frame" x="8" y="272" width="359" height="387"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Wrm-A2-SS7">
-                                        <rect key="frame" x="0.0" y="0.0" width="359" height="304"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="315"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="10" id="QDY-5N-juk">
                                             <size key="itemSize" width="80" height="110"/>
@@ -205,40 +206,56 @@
                                                     <outlet property="iconView" destination="mR6-f7-RtP" id="QNw-ZI-PAm"/>
                                                 </connections>
                                             </collectionViewCell>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="addCategoryCell" id="8aK-cp-N9h" customClass="AddCategoryCollectionViewCell" customModule="SaveTheSpot" customModuleProvider="target">
+                                                <rect key="frame" x="93" y="0.0" width="80" height="110"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="110"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zK7-nP-DDK" userLabel="Add Category Button">
+                                                            <rect key="frame" x="20.5" y="8" width="40" height="40"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="40" id="R3D-oO-8Bw"/>
+                                                                <constraint firstAttribute="width" secondItem="zK7-nP-DDK" secondAttribute="height" multiplier="1:1" id="qR5-1o-hfs"/>
+                                                            </constraints>
+                                                            <state key="normal" image="add-button"/>
+                                                            <connections>
+                                                                <action selector="addCategoryButtonTapped:" destination="8aK-cp-N9h" eventType="touchUpInside" id="ds4-fz-uKf"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </view>
+                                                <constraints>
+                                                    <constraint firstItem="zK7-nP-DDK" firstAttribute="top" secondItem="8aK-cp-N9h" secondAttribute="topMargin" constant="8" id="RfP-Lv-mRD"/>
+                                                    <constraint firstItem="zK7-nP-DDK" firstAttribute="centerX" secondItem="8aK-cp-N9h" secondAttribute="centerX" id="roc-ib-DcB"/>
+                                                </constraints>
+                                            </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="GtI-CA-IXT">
-                                        <rect key="frame" x="107" y="314" width="146" height="65"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yv9-9f-Mmz" userLabel="Edit Mode Button">
-                                                <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
-                                                <state key="normal" image="edit-category-button">
-                                                    <color key="titleColor" red="0.14834797382354736" green="0.17723199725151062" blue="0.20065844058990479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="editCategoriesButtonTapped:" destination="8sY-6w-1gW" eventType="touchUpInside" id="GyT-M0-mms"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37b-po-gXA" userLabel="Add Button">
-                                                <rect key="frame" x="81" y="0.0" width="65" height="65"/>
-                                                <state key="normal" image="add-category-button">
-                                                    <color key="titleColor" red="0.1870596706867218" green="0.22312897443771362" blue="0.2523345947265625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <segue destination="0I0-N0-tgc" kind="presentation" identifier="toNewTagModal" modalPresentationStyle="overCurrentContext" id="FBn-El-sou"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yv9-9f-Mmz" userLabel="Edit Mode Button">
+                                        <rect key="frame" x="303" y="331" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Yv9-9f-Mmz" secondAttribute="height" multiplier="1:1" id="IeD-Sa-FBx"/>
+                                            <constraint firstAttribute="width" constant="40" id="Mmw-NH-kV8"/>
+                                        </constraints>
+                                        <state key="normal" image="edit-category-button">
+                                            <color key="titleColor" red="0.14834797382354736" green="0.17723199725151062" blue="0.20065844058990479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="editCategoriesButtonTapped:" destination="8sY-6w-1gW" eventType="touchUpInside" id="GyT-M0-mms"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Wrm-A2-SS7" firstAttribute="top" secondItem="tYH-Cd-lEb" secondAttribute="top" id="13T-Sr-RG1"/>
-                                    <constraint firstAttribute="bottom" secondItem="GtI-CA-IXT" secondAttribute="bottom" constant="8" id="N0g-KU-qSL"/>
-                                    <constraint firstItem="GtI-CA-IXT" firstAttribute="centerX" secondItem="tYH-Cd-lEb" secondAttribute="centerX" id="bSc-VF-0Go"/>
+                                    <constraint firstItem="Yv9-9f-Mmz" firstAttribute="top" secondItem="Wrm-A2-SS7" secondAttribute="bottom" constant="16" id="K8X-Yn-ubc"/>
                                     <constraint firstAttribute="trailing" secondItem="Wrm-A2-SS7" secondAttribute="trailing" id="kEC-gY-xGc"/>
+                                    <constraint firstItem="Wrm-A2-SS7" firstAttribute="top" secondItem="tYH-Cd-lEb" secondAttribute="top" id="lCo-Wx-g4Z"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yv9-9f-Mmz" secondAttribute="trailing" constant="16" id="mwa-ij-CC7"/>
                                     <constraint firstItem="Wrm-A2-SS7" firstAttribute="leading" secondItem="tYH-Cd-lEb" secondAttribute="leading" id="rfk-HO-0sD"/>
-                                    <constraint firstItem="GtI-CA-IXT" firstAttribute="top" secondItem="Wrm-A2-SS7" secondAttribute="bottom" constant="10" id="yB9-QP-TT1"/>
+                                    <constraint firstAttribute="bottom" secondItem="Yv9-9f-Mmz" secondAttribute="bottom" constant="16" id="vmO-Cq-dAb"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -272,6 +289,7 @@
                         <outlet property="imageView" destination="ihm-zI-HeJ" id="ylo-kW-bWO"/>
                         <outlet property="nameLabel" destination="eSq-wv-49e" id="lkd-cN-tjz"/>
                         <outlet property="spotCategoriesCollectionView" destination="QHZ-sx-074" id="CNI-OO-fmE"/>
+                        <segue destination="0I0-N0-tgc" kind="presentation" identifier="toNewTagModal" modalPresentationStyle="overCurrentContext" id="ngX-ff-ZI9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZQ-Z1-g5U" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -292,7 +310,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Soj-li-4fU" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7Jb-tb-jNY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -306,7 +324,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add-category-button" width="65" height="65"/>
+        <image name="add-button" width="65" height="65"/>
         <image name="cactus" width="29" height="29"/>
         <image name="delete-category-button" width="23" height="23"/>
         <image name="delete-spotcategory-button" width="16" height="16"/>

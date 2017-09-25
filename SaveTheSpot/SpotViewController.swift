@@ -118,7 +118,7 @@ class SpotViewController: UIViewController {
 }
 
 
-// MARK: - Collection View Data Source & Delegate
+// MARK: - Collection View Data Source Methods
 
 extension SpotViewController: UICollectionViewDataSource  {
     
@@ -127,14 +127,15 @@ extension SpotViewController: UICollectionViewDataSource  {
         if collectionView === spotCategoriesCollectionView {
             return spotCategories.count
         } else if collectionView === categoriesCollectionView {
-            let cellCount = CategoryController.shared.allCategories.count
-            if cellCount == 0 {
+            let cellCount = CategoryController.shared.allCategories.count + 1
+            // disable deleting categories if there are none left
+            if cellCount == 1 {
                 inEditingMode = false
                 editModeButton.setImage(#imageLiteral(resourceName: "edit-category-button"), for: .normal)
             }
             return cellCount
         } else {
-            return 0
+            return 1
         }
     }
     
@@ -142,23 +143,35 @@ extension SpotViewController: UICollectionViewDataSource  {
         
         if collectionView === categoriesCollectionView {
             
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as? CategoryCollectionViewCell else { return CategoryCollectionViewCell() }
+            let lastItemRowNumber = CategoryController.shared.allCategories.count
             
-            let category = CategoryController.shared.allCategories[indexPath.row]
-            
-            cell.categoryLabel.text = category.name
-            if let iconName = category.iconName {
-                cell.iconView.image = UIImage(named: iconName)
-            }
-            cell.delegate = self
-            
-            if inEditingMode {
-                cell.showDeleteButton()
+            if indexPath.row == lastItemRowNumber {
+                
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addCategoryCell", for: indexPath) as? AddCategoryCollectionViewCell else { return AddCategoryCollectionViewCell() }
+                
+                cell.delegate = self
+
+                return cell
+                
             } else {
-                cell.hideDeleteButton()
+                
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as? CategoryCollectionViewCell else { return CategoryCollectionViewCell() }
+                
+                let category = CategoryController.shared.allCategories[indexPath.row]
+                
+                cell.categoryLabel.text = category.name
+                if let iconName = category.iconName {
+                    cell.iconView.image = UIImage(named: iconName)
+                }
+                cell.delegate = self
+                
+                if inEditingMode {
+                    cell.showDeleteButton()
+                } else {
+                    cell.hideDeleteButton()
+                }
+                return cell
             }
-            
-            return cell
             
         } else if collectionView === spotCategoriesCollectionView {
             
@@ -180,6 +193,9 @@ extension SpotViewController: UICollectionViewDataSource  {
     }
 }
 
+
+// MARK: - Collection View Delegate Methods
+
 extension SpotViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -191,8 +207,10 @@ extension SpotViewController: UICollectionViewDelegate {
         if !spotCategories.contains(category) {
             spotCategories.append(category)
         }
+        
         spotCategoriesCollectionView.reloadData()
         
+        // scroll down to the last category added
         let categoryCount = spotCategoriesCollectionView.numberOfItems(inSection: 0)
         if categoryCount > 0 {
             let lastIndexPath = IndexPath(row: (categoryCount-1), section: 0)
@@ -205,6 +223,26 @@ extension SpotViewController: UICollectionViewDelegate {
 
 // MARK: - Delegate Methods
 
+extension SpotViewController: AddCategoryCollectionViewCellDelegate {
+    
+    func addCategoryButtonWasTapped(cell: AddCategoryCollectionViewCell) {
+       
+        self.performSegue(withIdentifier: "toNewTagModal", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toNewTagModal" {
+            
+            if inEditingMode {
+                toggleEditMode()
+            }
+            
+            let destinationVC = segue.destination as? CustomCategoryViewController
+            destinationVC?.delegate = self
+        }
+    }
+}
+
 extension SpotViewController: SpotCategoryCollectionViewCellDelegate {
     
     func removeCategory(cell: SpotCategoryCollectionViewCell) {
@@ -215,7 +253,6 @@ extension SpotViewController: SpotCategoryCollectionViewCellDelegate {
         
         spotCategoriesCollectionView.reloadData()
         spotCategoriesCollectionView.collectionViewLayout.invalidateLayout()
-        
     }
 }
 
@@ -234,6 +271,11 @@ extension SpotViewController: CategoryCollectionViewCellDelegate {
         } else {
             
             CategoryController.shared.deleteCategory(category: category)
+       
+        // prevent adding a spot to the category that does not exist anymore
+//            if spotCategories.contains(category) {
+//                spotCategories.removeAll()
+//            }
             
             if let iconName = category.iconName {
                 CategoryController.shared.availableIcons.append(iconName)
@@ -253,20 +295,7 @@ extension SpotViewController: CategoryCollectionViewCellDelegate {
 
 extension SpotViewController: CustomCategoryViewControllerDelegate {
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toNewTagModal" {
-            
-            if inEditingMode {
-                toggleEditMode()
-            }
-            
-            let destinationVC = segue.destination as? CustomCategoryViewController
-            destinationVC?.delegate = self
-        }
-    }
-    
     func saveCategoryWasTapped() {
         categoriesCollectionView.reloadData()
     }
 }
-

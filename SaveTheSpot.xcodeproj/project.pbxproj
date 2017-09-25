@@ -29,6 +29,7 @@
 		217E4FE31F3CFD1D00F4C6B1 /* Spot.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217E4FE21F3CFD1D00F4C6B1 /* Spot.storyboard */; };
 		218B65E01F4608F1007AD23A /* SlideInPresentationController..swift in Sources */ = {isa = PBXBuildFile; fileRef = 218B65DF1F4608F1007AD23A /* SlideInPresentationController..swift */; };
 		218DE59D1F43B68B00985AA5 /* AddressManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218DE59C1F43B68B00985AA5 /* AddressManager.swift */; };
+		2198A44E1F783CF9003DB1F3 /* AddCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2198A44D1F783CF9003DB1F3 /* AddCategoryCollectionViewCell.swift */; };
 		219CE6491F667AEF009C19A4 /* LeftAlignedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219CE6481F667AEF009C19A4 /* LeftAlignedFlowLayout.swift */; };
 		219EAC3A1F4B9340001829C1 /* SpotMKPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219EAC391F4B9340001829C1 /* SpotMKPointAnnotation.swift */; };
 		21AA3D911F4DEA6100441D34 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21AA3D901F4DEA6100441D34 /* CoreData.framework */; };
@@ -68,6 +69,7 @@
 		217E4FE21F3CFD1D00F4C6B1 /* Spot.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Spot.storyboard; sourceTree = "<group>"; };
 		218B65DF1F4608F1007AD23A /* SlideInPresentationController..swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideInPresentationController..swift; sourceTree = "<group>"; };
 		218DE59C1F43B68B00985AA5 /* AddressManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressManager.swift; sourceTree = "<group>"; };
+		2198A44D1F783CF9003DB1F3 /* AddCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		219CE6481F667AEF009C19A4 /* LeftAlignedFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftAlignedFlowLayout.swift; sourceTree = "<group>"; };
 		219EAC391F4B9340001829C1 /* SpotMKPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotMKPointAnnotation.swift; sourceTree = "<group>"; };
 		21AA3D901F4DEA6100441D34 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -98,11 +100,12 @@
 		2116FDB51F44E44600BE4307 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				219EAC391F4B9340001829C1 /* SpotMKPointAnnotation.swift */,
-				2173BF701F452A2500C4850B /* CategoryTableViewCell.swift */,
-				2116FDB31F44E44300BE4307 /* CategoryCollectionViewCell.swift */,
 				21FAE3211F4904FE00D5E9A4 /* SpotCategoryCollectionViewCell.swift */,
+				2116FDB31F44E44300BE4307 /* CategoryCollectionViewCell.swift */,
+				2198A44D1F783CF9003DB1F3 /* AddCategoryCollectionViewCell.swift */,
 				210AA2F21F5481AC0013988A /* NewCategoryCollectionViewCell.swift */,
+				2173BF701F452A2500C4850B /* CategoryTableViewCell.swift */,
+				219EAC391F4B9340001829C1 /* SpotMKPointAnnotation.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				218B65E01F4608F1007AD23A /* SlideInPresentationController..swift in Sources */,
 				21AA3D931F4DEC0D00441D34 /* CoreDataStack.swift in Sources */,
 				2173BF711F452A2500C4850B /* CategoryTableViewCell.swift in Sources */,
+				2198A44E1F783CF9003DB1F3 /* AddCategoryCollectionViewCell.swift in Sources */,
 				219EAC3A1F4B9340001829C1 /* SpotMKPointAnnotation.swift in Sources */,
 				21D83DC91F47CE34005C87A4 /* Constants.swift in Sources */,
 				21AA3D9A1F4DFA0000441D34 /* Category+Convenience.swift in Sources */,

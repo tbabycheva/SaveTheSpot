@@ -22,10 +22,10 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.categoryLabel.numberOfLines = 0
-        self.categoryLabel.lineBreakMode = .byWordWrapping
-        self.categoryLabel.preferredMaxLayoutWidth = 80
-        self.categoryLabel.sizeToFit()
+        self.categoryLabel?.numberOfLines = 0
+        self.categoryLabel?.lineBreakMode = .byWordWrapping
+        self.categoryLabel?.preferredMaxLayoutWidth = 80
+        self.categoryLabel?.sizeToFit()
     }
     
     func showDeleteButton() {
