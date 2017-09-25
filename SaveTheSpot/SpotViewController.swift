@@ -150,7 +150,7 @@ extension SpotViewController: UICollectionViewDataSource  {
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addCategoryCell", for: indexPath) as? AddCategoryCollectionViewCell else { return AddCategoryCollectionViewCell() }
                 
                 cell.delegate = self
-
+                
                 return cell
                 
             } else {
@@ -206,27 +206,29 @@ extension SpotViewController: UICollectionViewDelegate {
         
         if !spotCategories.contains(category) {
             spotCategories.append(category)
+            
+            spotCategoriesCollectionView.reloadData()
+            spotCategoriesCollectionView.collectionViewLayout.invalidateLayout()
+            scrollToBottomAnimated(animated: true)
         }
-        
-        spotCategoriesCollectionView.reloadData()
-        
-        // scroll down to the last category added
-        let categoryCount = spotCategoriesCollectionView.numberOfItems(inSection: 0)
-        if categoryCount > 0 {
-            let lastIndexPath = IndexPath(row: (categoryCount-1), section: 0)
-            spotCategoriesCollectionView.scrollToItem(at: lastIndexPath, at: .bottom, animated: true)
-        }
-        
-        spotCategoriesCollectionView.collectionViewLayout.invalidateLayout()
+    }
+    
+    func scrollToBottomAnimated(animated: Bool) {
+
+        spotCategoriesCollectionView.layoutIfNeeded()
+        let numberOfitems = spotCategoriesCollectionView.numberOfItems(inSection: 0)
+        if numberOfitems == 0 { return }
+        let lastIndexPath = IndexPath(item: (numberOfitems - 1), section: 0)
+        spotCategoriesCollectionView.scrollToItem(at: lastIndexPath, at: .bottom, animated: true)
     }
 }
 
-// MARK: - Delegate Methods
+// MARK: - Protocol Conforming Delegate Methods
 
 extension SpotViewController: AddCategoryCollectionViewCellDelegate {
     
     func addCategoryButtonWasTapped(cell: AddCategoryCollectionViewCell) {
-       
+        
         self.performSegue(withIdentifier: "toNewTagModal", sender: self)
     }
     
@@ -271,11 +273,11 @@ extension SpotViewController: CategoryCollectionViewCellDelegate {
         } else {
             
             CategoryController.shared.deleteCategory(category: category)
-       
-        // prevent adding a spot to the category that does not exist anymore
-//            if spotCategories.contains(category) {
-//                spotCategories.removeAll()
-//            }
+            
+            // prevent adding a spot to the category that does not exist anymore
+            //            if spotCategories.contains(category) {
+            //                spotCategories.removeAll()
+            //            }
             
             if let iconName = category.iconName {
                 CategoryController.shared.availableIcons.append(iconName)
@@ -295,7 +297,7 @@ extension SpotViewController: CategoryCollectionViewCellDelegate {
 
 extension SpotViewController: CustomCategoryViewControllerDelegate {
     
-    func saveCategoryWasTapped() {
+    func saveCategoryButtonWasTapped() {
         categoriesCollectionView.reloadData()
     }
 }

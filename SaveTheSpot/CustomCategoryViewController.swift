@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CustomCategoryViewControllerDelegate: class {
-    func saveCategoryWasTapped()
+    func saveCategoryButtonWasTapped()
 }
 
 class CustomCategoryViewController: UIViewController, UITextFieldDelegate {
@@ -67,7 +67,7 @@ class CustomCategoryViewController: UIViewController, UITextFieldDelegate {
                 dismiss(animated: true, completion: nil)
             }
         }
-        delegate?.saveCategoryWasTapped()
+        delegate?.saveCategoryButtonWasTapped()
     }
     
     // MARK: - Helper Functions
