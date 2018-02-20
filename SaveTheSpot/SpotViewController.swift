@@ -275,10 +275,8 @@ extension SpotViewController: CategoryCollectionViewCellDelegate {
             CategoryController.shared.deleteCategory(category: category)
             
             // prevent adding a spot to the category that does not exist anymore
-            //            if spotCategories.contains(category) {
-            //                spotCategories.removeAll()
-            //            }
-            
+            // code here
+
             if let iconName = category.iconName {
                 CategoryController.shared.availableIcons.append(iconName)
                 CategoryController.shared.saveAvailableIconsToUserDefaults()

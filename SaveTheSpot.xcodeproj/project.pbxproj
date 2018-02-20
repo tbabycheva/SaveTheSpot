@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2105A84A1F79884300B726B2 /* PressToDeleteAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2105A8491F79884300B726B2 /* PressToDeleteAnimation.swift */; };
 		210AA2EF1F547EA30013988A /* CustomCategory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 210AA2EE1F547EA30013988A /* CustomCategory.storyboard */; };
 		210AA2F11F547ED10013988A /* CustomCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210AA2F01F547ED10013988A /* CustomCategoryViewController.swift */; };
 		210AA2F31F5481AC0013988A /* NewCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210AA2F21F5481AC0013988A /* NewCategoryCollectionViewCell.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2105A8491F79884300B726B2 /* PressToDeleteAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressToDeleteAnimation.swift; sourceTree = "<group>"; };
 		210AA2EE1F547EA30013988A /* CustomCategory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CustomCategory.storyboard; sourceTree = "<group>"; };
 		210AA2F01F547ED10013988A /* CustomCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCategoryViewController.swift; sourceTree = "<group>"; };
 		210AA2F21F5481AC0013988A /* NewCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				218B65DF1F4608F1007AD23A /* SlideInPresentationController..swift */,
 				21C38B321F460736001AF695 /* SlideInPresentationManager.swift */,
 				219CE6481F667AEF009C19A4 /* LeftAlignedFlowLayout.swift */,
+				2105A8491F79884300B726B2 /* PressToDeleteAnimation.swift */,
 			);
 			name = Presentation;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				21AA3D981F4DF96C00441D34 /* Spot+Convenience.swift in Sources */,
 				213A14861F42594600C4258B /* LocationSearchTableViewController.swift in Sources */,
 				214372C11F47B6E600D3DA04 /* SpotController.swift in Sources */,
+				2105A84A1F79884300B726B2 /* PressToDeleteAnimation.swift in Sources */,
 				21B79DD31F46580E0091281F /* Theme.swift in Sources */,
 				21C38B331F460736001AF695 /* SlideInPresentationManager.swift in Sources */,
 				21C38B361F460792001AF695 /* SlideInPresentationAnimator.swift in Sources */,
